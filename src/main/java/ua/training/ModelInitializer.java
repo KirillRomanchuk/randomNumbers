@@ -2,7 +2,7 @@ package ua.training;
 
 import java.util.Random;
 
-public class RandomNumberAction {
+public class ModelInitializer {
     private Random randomNumber = new Random();
 
     public int generateRandomNumber(int minLimit, int maxLimit) {

@@ -4,17 +4,17 @@ public class Controller {
 
     private Model model;
     private View view;
-    private RandomNumberAction randomNumberAction;
+    private ModelInitializer modelInitializer;
 
-    public Controller(Model model, View view, RandomNumberAction randomNumberAction) {
+    public Controller(Model model, View view, ModelInitializer modelInitializer) {
         this.model = model;
         this.view = view;
-        this.randomNumberAction = randomNumberAction;
+        this.modelInitializer = modelInitializer;
     }
 
     public void startTheGame() {
-        randomNumberAction.takeLimitForRandomNumber(model, view);
-        int randomNumber = randomNumberAction.generateRandomNumber(model.getMinLimit(), model.getMaxLimit());
+        modelInitializer.takeLimitForRandomNumber(model, view);
+        int randomNumber = modelInitializer.generateRandomNumber(model.getMinLimit(), model.getMaxLimit());
         model.setRandomNumber(randomNumber);
         int lastUserNumber = inputUserNumber();
         view.showUserStat(model.getUserGuessed(), lastUserNumber, model.getSumUserTry(), model.getRandomNumber());
