@@ -2,46 +2,48 @@ package ua.training;
 
 public class Model {
     private int randomNumber;
-    private int minLimit, maxLimit, sumUserTry;
+    private int minLimit;
+    private int maxLimit;
+    private int sumUserTry;
     private boolean userGuessed;
 
-    public int getRandomNumber(){
+    public int getRandomNumber() {
         return randomNumber;
     }
 
-    public void setRandomNumber(int number){
+    public void setRandomNumber(int number) {
         randomNumber = number;
     }
 
-    public int getMinLimit (){
+    public int getMinLimit() {
         return minLimit;
     }
 
-    public void setMinLimit (int number){
+    public void setMinLimit(int number) {
         minLimit = number;
     }
 
-    public int getMaxLimit (){
+    public int getMaxLimit() {
         return maxLimit;
     }
 
-    public void setMaxLimit (int number){
+    public void setMaxLimit(int number) {
         maxLimit = number;
     }
 
-    public int getSumUserTry(){
+    public int getSumUserTry() {
         return sumUserTry;
     }
 
-    public void addUserTry(){
-        sumUserTry = ++sumUserTry;
+    public void addUserTry() {
+        ++sumUserTry;
     }
 
-    public void changeUserGuessed(boolean flag){
+    public void changeUserGuessed(boolean flag) {
         userGuessed = flag;
     }
 
-    public boolean getUserGuessed(){
+    public boolean getUserGuessed() {
         return userGuessed;
     }
 

@@ -13,50 +13,50 @@ public class View {
     private static final String USER_LOOSE = "You lose the game.";
     private Scanner scanner = new Scanner(System.in);
 
-    public void viewMessageUserWin(){
+    public void viewMessageUserWin() {
         System.out.println(USER_WIN);
     }
 
-    public void viewMessageUserLoose(){
+    public void viewMessageUserLoose() {
         System.out.println(USER_LOOSE);
     }
 
-    public void viewMessageIfNumberBigger(){
+    public void viewMessageIfNumberBigger() {
         System.out.print(USER_NUMBER_BIGGER);
     }
 
-    public void viewMessageIfNumberSmaller(){
+    public void viewMessageIfNumberSmaller() {
         System.out.print(USER_NUMBER_SMALLER);
     }
 
-    private int requestNumberFromUser (String systemText){
+    private int requestNumberFromUser(String systemText) {
         System.out.println(systemText);
         return scanner.nextInt();
     }
 
-    public int requestUserNumber (){
+    public int requestUserNumber() {
         return requestNumberFromUser(REQUEST_USER_NUMBER);
     }
 
-    public int requestMinLimit (){
+    public int requestMinLimit() {
         return requestNumberFromUser(REQUEST_MIN_LIMIT);
     }
 
-    public int requestMaxLimit (){
+    public int requestMaxLimit() {
         return requestNumberFromUser(REQUEST_MAX_LIMIT);
     }
 
-    private String requestTextFromUser (String systemText){
+    private String requestTextFromUser(String systemText) {
         System.out.println(systemText);
         return scanner.nextLine();
     }
 
-    public String requestContinueTheGame(){
-        return  requestTextFromUser(ASK_USER_ABOUT_CONTINUE);
+    public String requestContinueTheGame() {
+        return requestTextFromUser(ASK_USER_ABOUT_CONTINUE);
     }
 
-    public void showUserStat (boolean userWin, int lastUserNumber, int userTries, int randomNumber){
-        if (userWin){
+    public void showUserStat(boolean userWin, int lastUserNumber, int userTries, int randomNumber) {
+        if (userWin) {
             viewMessageUserWin();
         } else {
             viewMessageUserLoose();
@@ -65,15 +65,16 @@ public class View {
         StringBuilder outText = new StringBuilder();
         outText.append("User last number: ");
         outText.append(lastUserNumber);
-        System.out.println(outText.toString());
+        outText.append("\n");
         outText.delete(0, outText.length());
         outText.append("User tries: ");
         outText.append(userTries);
-        System.out.println(outText.toString());
+        outText.append("\n");
         outText.delete(0, outText.length());
         outText.append("Random number: ");
         outText.append(randomNumber);
-        System.out.println(outText.toString());
+        outText.append("\n");
         outText.delete(0, outText.length());
+        System.out.println(outText.toString());
     }
 }

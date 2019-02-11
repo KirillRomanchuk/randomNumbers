@@ -4,42 +4,42 @@ public class Controller {
 
     private Model model;
     private View view;
-    private RandomNumberActions randomNumberActions;
+    private RandomNumberAction randomNumberAction;
 
-    public Controller (Model model, View view, RandomNumberActions randomNumberActions){
+    public Controller(Model model, View view, RandomNumberAction randomNumberAction) {
         this.model = model;
         this.view = view;
-        this.randomNumberActions = randomNumberActions;
+        this.randomNumberAction = randomNumberAction;
     }
 
-    public void startTheGame (){
-        randomNumberActions.takeLimitForRandomNumber(model, view);
-        int randomNumber = randomNumberActions.generateRandomNumber(model.getMinLimit(), model.getMaxLimit());
+    public void startTheGame() {
+        randomNumberAction.takeLimitForRandomNumber(model, view);
+        int randomNumber = randomNumberAction.generateRandomNumber(model.getMinLimit(), model.getMaxLimit());
         model.setRandomNumber(randomNumber);
         int lastUserNumber = inputUserNumber();
         view.showUserStat(model.getUserGuessed(), lastUserNumber, model.getSumUserTry(), model.getRandomNumber());
     }
 
-    public int inputUserNumber (){
+    public int inputUserNumber() {
         int userNumber;
         int randomNumber = model.getRandomNumber();
-        while (true){
+        while (true) {
             model.addUserTry();
             userNumber = view.requestUserNumber();
-            if (userNumber == randomNumber){
+            if (userNumber == randomNumber) {
                 model.changeUserGuessed(true);
                 break;
             } else {
-              if (userNumber < randomNumber){
-                  view.viewMessageIfNumberSmaller();
-              }
-              if (userNumber > randomNumber){
-                  view.viewMessageIfNumberBigger();
-              }
-              String answer = view.requestContinueTheGame();
-              if (answer.equals("no")){
-                  break;
-              }
+                if (userNumber < randomNumber) {
+                    view.viewMessageIfNumberSmaller();
+                }
+                if (userNumber > randomNumber) {
+                    view.viewMessageIfNumberBigger();
+                }
+                String answer = view.requestContinueTheGame();
+                if (answer.equals("no")) {
+                    break;
+                }
             }
         }
         return userNumber;
