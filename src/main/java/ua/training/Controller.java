@@ -36,10 +36,6 @@ public class Controller {
                 if (userNumber > randomNumber) {
                     view.viewMessageIfNumberBigger();
                 }
-                String answer = view.requestContinueTheGame();
-                if (answer.equals("no")) {
-                    break;
-                }
             }
         }
         return userNumber;

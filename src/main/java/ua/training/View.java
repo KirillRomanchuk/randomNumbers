@@ -9,8 +9,11 @@ public class View {
     private static final String USER_NUMBER_BIGGER = "Sorry, your number is bigger than game guess. ";
     private static final String USER_NUMBER_SMALLER = "Sorry, your number is smaller than game guess.";
     private static final String ASK_USER_ABOUT_CONTINUE = "Do you want to continue the game ? (yes/no): ";
-    private static final String USER_WIN = "We congratulate. You win the game.";
+    private static final String USER_WIN = "We congratulate you. You win the game.";
     private static final String USER_LOOSE = "You lose the game.";
+    private static final String SHOW_LAST_NUMBER = "User last number: ";
+    private static final String SHOW_TRIES = "User tries: ";
+    private static final String SHOW_RANDOM_NUMBER = "Random number: ";
     private Scanner scanner = new Scanner(System.in);
 
     public void viewMessageUserWin() {
@@ -63,18 +66,15 @@ public class View {
         }
 
         StringBuilder outText = new StringBuilder();
-        outText.append("User last number: ");
+        outText.append(SHOW_LAST_NUMBER);
         outText.append(lastUserNumber);
         outText.append("\n");
-        outText.delete(0, outText.length());
-        outText.append("User tries: ");
+        outText.append(SHOW_TRIES);
         outText.append(userTries);
         outText.append("\n");
-        outText.delete(0, outText.length());
-        outText.append("Random number: ");
+        outText.append(SHOW_RANDOM_NUMBER);
         outText.append(randomNumber);
         outText.append("\n");
-        outText.delete(0, outText.length());
         System.out.println(outText.toString());
     }
 }
