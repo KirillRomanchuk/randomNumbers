@@ -2,10 +2,9 @@ package ua.training;
 
 public class Main {
     public static void main(String[] args) {
-        Model model = new Model();
-        View view = new View();
-        ModelInitializer modelInitializer = new ModelInitializer();
-        Controller controller = new Controller(model, view, modelInitializer);
+        View view = new View(System.in);
+        ModelInitializer modelInitializer = new ModelInitializer(view);
+        Controller controller = new Controller(view, modelInitializer);
         controller.startTheGame();
     }
 }

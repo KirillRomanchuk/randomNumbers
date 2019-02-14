@@ -47,4 +47,15 @@ public class Model {
         return userGuessed;
     }
 
+    public void changeLimits (int userNumber){
+        if (userNumber > randomNumber){
+            maxLimit = userNumber;
+        } else {
+            minLimit = userNumber;
+        }
+    }
+
+    /*public checkUserNumber (int userNumber){
+
+    }*/
 }
