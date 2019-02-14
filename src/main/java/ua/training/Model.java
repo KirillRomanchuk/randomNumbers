@@ -1,11 +1,14 @@
 package ua.training;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Model {
     private int randomNumber;
     private int minLimit;
     private int maxLimit;
-    private int sumUserTry;
     private boolean userGuessed;
+    private List<Integer> userTries = new ArrayList<>();
 
     public int getRandomNumber() {
         return randomNumber;
@@ -31,12 +34,12 @@ public class Model {
         maxLimit = number;
     }
 
-    public int getSumUserTry() {
-        return sumUserTry;
+    public List<Integer> getUserTries() {
+        return userTries;
     }
 
-    public void addUserTry() {
-        ++sumUserTry;
+    public void addUserTry(int userNumber) {
+        userTries.add(userNumber);
     }
 
     public void changeUserGuessed(boolean flag) {
@@ -47,8 +50,8 @@ public class Model {
         return userGuessed;
     }
 
-    public void changeLimits (int userNumber){
-        if (userNumber > randomNumber){
+    public void changeLimits(int userNumber) {
+        if (userNumber > randomNumber) {
             maxLimit = userNumber;
         } else {
             minLimit = userNumber;

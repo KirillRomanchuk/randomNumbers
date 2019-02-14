@@ -1,6 +1,7 @@
 package ua.training;
 
 import java.io.InputStream;
+import java.util.List;
 import java.util.Scanner;
 
 public class View {
@@ -16,21 +17,20 @@ public class View {
     private static final String RANDOM_BARRIER = "Current range: ]%s to %s[";
     private static final String WRONG_NUMBER = "Input value outside the specified range!";
     private final Scanner scanner;
-//    Collections.unmodifiableList()
 
-    public View (InputStream inputStream){
+    public View(InputStream inputStream) {
         scanner = new Scanner(inputStream);
     }
 
-    private void viewMessage (String messageText){
+    private void viewMessage(String messageText) {
         System.out.println(messageText);
     }
 
-    public void massageAboutWrong (){
+    public void massageAboutWrong() {
         viewMessage(WRONG_NUMBER);
     }
 
-    public void showNewBarrier (int minLimit, int maxLimtit){
+    public void showNewBarrier(int minLimit, int maxLimtit) {
         viewMessage(String.format(RANDOM_BARRIER, minLimit, maxLimtit));
     }
 
@@ -71,13 +71,13 @@ public class View {
         return requestNumberFromUser(ASK_USER_ABOUT_CONTINUE);
     }
 
-    public void showUserStat(boolean userWin, int userTries, int randomNumber) {
+    public void showUserStat(boolean userWin, List<Integer> userTries, int randomNumber) {
         if (userWin) {
             viewMessageUserWin();
         } else {
             viewMessageUserLoose();
         }
 
-        System.out.println(String.format(SHOW_USER_STORY,userWin,userTries,randomNumber));
+        System.out.println(String.format(SHOW_USER_STORY, userWin, userTries.toString(), randomNumber));
     }
 }

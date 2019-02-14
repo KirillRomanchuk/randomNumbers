@@ -6,14 +6,14 @@ public class ModelInitializer {
     private View view;
     private Random randomNumber = new Random();
 
-    public ModelInitializer (View view) {
+    public ModelInitializer(View view) {
         this.view = view;
     }
 
-    public Model initializeModel (){
+    public Model initializeModel() {
         Model model = new Model();
         takeLimitForRandomNumber(model);
-        int rn = generateRandomNumber(model.getMinLimit(),model.getMaxLimit());
+        int rn = generateRandomNumber(model.getMinLimit(), model.getMaxLimit());
         System.out.println(rn);
         model.setRandomNumber(rn);
         return model;
